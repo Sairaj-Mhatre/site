@@ -5,6 +5,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -39,10 +41,18 @@
 
 									<hr class="major" />
 
-                                    <pre><code style="color: rgb(255, 255, 255);">i+
-koi mast sa
-code
-haha
+                                    <pre><code class="language-py">
+
+url = "https://xxxxx.xxxxxxxxxxx.com/login.php"
+
+def login(username ,password):
+	r = requests.post(url,data = {
+		"username" :username,
+		"password" :password,
+		"submit":"Login",
+
+	})
+	return r
                                     </code></pre>
 
 									<h2>Interdum sed dapibus</h2>
@@ -120,6 +130,8 @@ haha
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+			<script>hljs.highlightAll();</script>
 
 	</body>
 </html>
