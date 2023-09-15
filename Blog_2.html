@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Build Your Own Port Scanner</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="msapplication-TileImage" content="https://sairazex.in/images/sairazex300.png">
+
+	<meta property="og:site_name" content="SAIRAZEX">
+	<meta property="og:title" content="Build Your Own Port Scanner">
+	<meta property="og:description" content="Check it Out !!!">
+
+	<meta property="og:image" itemprop="image" content="https://sairazex.in/images/sairazex300.png">
+
+	<meta property="og:type" content="website" />
+	<meta property="og:image:type" content="image/png">
+
+	<meta property="og:image:width" content="300">
+	<meta property="og:image:height" content="300">
+
+	<meta property="og:url" content="https://sairazex.in">
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo"><strong>SAIRAZEX</strong> by Sairaj Mhatre</a>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/sairaj-mhatre/" class="icon brands fa-linkedin"
+								target="_blank" rel="noopener noreferrer"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://www.instagram.com/sairaj_exe/" class="icon brands fa-instagram"
+								target="_blank" rel="noopener noreferrer"><span class="label">Instagram</span></a></li>
+						<li><a href="https://twitter.com/SairajMhatre6" class="icon brands fa-twitter" target="_blank"
+								rel="noopener noreferrer"><span class="label">Twitter</span></a></li>
+
+					</ul>
+				</header>
+
+				<section>
+					<header class="main">
+						<h1>Build Your Own Port Scanner. </h1>
+					</header>
+
+					<span class="image main"><img src="images/blg_2_1.png" alt="" /></span>
+					<p style="color: red;">*** Do not Use againts any Hosts Without Proper Authorization*** </p>
+
+
+					<h3>What is a Port Scanner ?</h3>
+
+					<p>A port scanner is a computer program or tool used to scan and identify open ports on a computer
+						or network device. Ports are numbered endpoints for network connections, and they allow
+						different services or applications to communicate over a network. Port scanning is a technique
+						used for various purposes, including network security assessment, troubleshooting, and system
+						administration.</p>
+
+
+					<h3>Lets Build Our Own :D</h3>
+
+					<p>Lets Start with Importing Necessary Modules
+					<ul></ul>
+
+					<li>sys to use Command Line Arguements</li>
+					<li>Socket to try to Connect to Ports</li>
+					<li>Ipaddress to Validate the Ip Address</li>
+					<li>DateTime for Date and Time Duhhh..</li>
+					</ul>
+					</p>
+
+					<pre><code class="language-py">import sys
+import socket
+import ipaddress
+from datetime import datetime
+													</code></pre>
+
+					<p>
+						Ip Validation Function , if the ip_address funtion throws a ValueError that means the Entered Ip
+						is Incorrect.
+					</p>
+					<pre><code class="language-py">def validate_ip(ip):
+try:
+	ipaddress.ip_address(ip)
+	return True
+except ValueError:
+	return False</code></pre>
+					<p>
+						<em>Scan_ip </em> Function Takes 2 arguements <br>Target Ip and Scan Type , 1 To Scan all 65535 Ports and 2
+						to Scan first Common 1000 Ports . <br><br>
+						The built-in python socket library has this <em>connect_ex()</em> function returns 0 if the operation is
+						successful otherwise will return a value to errno variable. What this means is if the connection
+						is successful the method <em>connect_ex()</em> returns 0 otherwise some value will be returned.Which
+						Tells us if the Port is open or not.
+					</p>
+					<pre><code class="language-py">def scan_ip(target, r):
+try:
+	if r == 1:
+		x = 0
+		y = 65565
+	elif r == 2:
+		x = 0
+		y = 1023
+	else:
+		print("Please Select Correct Scan Option")
+
+#Banner
+	print("-"*50)
+	print(f"Scanning Target :{target}")
+	print(f"Time Started: {str(datetime.now())}")
+	print("-"*50)
+
+	for port in range(x, y):
+		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		socket.setdefaulttimeout(1)
+		result = s.connect_ex((target, port))
+
+		if result == 0:
+			print(f"Port :{port} is Opened")
+			s.close()
+#Banner
+	print("-"*50)
+	print("Scan Completed")
+	print("-"*50)
+except KeyboardInterrupt:
+	print("\n Exiting Program")
+	sys.exit()
+except socket.gaierror:
+	print("Hostname could not be Resolved.")
+	sys.exit()
+except socket.error:
+	print("could Not Connect to the server")</code></pre>
+					<p>
+						Next We are just checking if the User has entered two Command Line Arguements And Set the Target
+						to Entered IP , and Fire the <em>scan_ip</em> function.
+					</p>
+					<pre><code class="language-py">if len(sys.argv) == 2 and validate_ip(sys.argv[1]):
+
+target = socket.gethostbyname(sys.argv[1])
+
+print("Scan Options.......")
+print("1 : Scan All Ports")
+print("2 : Scan Common Ports")
+r = int(input("Enter Scan Option :"))
+
+scan_ip(target, r)
+
+
+else:
+print("Invalid Syntax")
+print(" try  PortScan.py &lt;ip&gt; ")</code></pre>
+
+					 <h3>And now lets see how it worked ...</h3> 
+						<p>Im Testing This on my Default Gateway Router which I know is running a Web page</p>
+					<span class="image fit"><img src="images/blg_2_2.png" alt="" /></span>
+
+					<p>
+						Alright , Now we Have Created Our Very Own Port Scanner. </p>
+
+					<h4>Although It works But it takes too long to Complete , we can still Make some Improvemets By
+						Multithreading. <br>
+						This will Cut Down the time Drastically.
+					</h4>
+
+				</section>
+
+
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+
+						<li>
+							<span class="opener">Blogs</span>
+							<ul>
+								<li><a style="color:#8d8d8d" href="Blog_1.html"> &bull; How I Bruteforced a Friend's
+										Website.</a></li>
+								<li><a style="color:#8d8d8d" href="Blog_2.html"> &bull; Build Your Own Port Scanner.</a></li>
+
+
+							</ul>
+						</li>
+						<li><a href="index.html#aboutme">About Me</a></li>
+
+
+
+					</ul>
+				</nav>
+
+
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>I'd love to hear from you! Whether you want to chat about shared interests, collaborate on
+						exciting projects, or just have a friendly conversation, don't hesitate to reach out.</p>
+					<p>Ps : Im a lot easier to get in touch on my Socials </p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope">sairajbmhatre@gmail.com</li>
+						<li class="icon solid fa-home"> Mumbai <br />
+							Maharastra , India</li>
+					</ul>
+
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/sairaj-mhatre/" class="icon brands fa-linkedin"
+								target="_blank" rel="noopener noreferrer"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://www.instagram.com/sairaj_exe/" class="icon brands fa-instagram"><span
+									class="label">Instagram</span></a></li>
+						<li><a href="https://twitter.com/SairajMhatre6" class="icon brands fa-twitter"><span
+									class="label">Twitter</span></a></li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy;SAIRAZEX. All rights reserved. Made With &#128151;</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            var disclaimer = document.querySelector("img[alt='www.000webhost.com']");
+            if(disclaimer) {
+                disclaimer.remove();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

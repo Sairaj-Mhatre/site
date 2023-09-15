@@ -181,6 +181,8 @@ for password in passwords:
 							<ul>
 								<li><a style="color:#8d8d8d" href="Blog_1.html"> &bull; How I Bruteforced a Friend's
 										Website.</a></li>
+								<li><a style="color:#8d8d8d" href="Blog_2.html"> &bull; Build Your Own Port Scanner.</a>
+								</li>
 
 
 							</ul>
@@ -234,6 +236,14 @@ for password in passwords:
 	<script src="assets/js/main.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
 	<script>hljs.highlightAll();</script>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			var disclaimer = document.querySelector("img[alt='www.000webhost.com']");
+			if (disclaimer) {
+				disclaimer.remove();
+			}
+		});
+	</script>
 
 </body>
 
