@@ -1,0 +1,589 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Build Your Own Port Scanner</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="msapplication-TileImage" content="https://sairazex.in/images/sairazex300.png">
+
+	<meta property="og:site_name" content="SAIRAZEX">
+	<meta property="og:title" content="Build Your Own Port Scanner">
+	<meta property="og:description" content="Check it Out !!!">
+
+	<meta property="og:image" itemprop="image" content="https://sairazex.in/images/sairazex300.png">
+
+	<meta property="og:type" content="website" />
+	<meta property="og:image:type" content="image/png">
+
+	<meta property="og:image:width" content="300">
+	<meta property="og:image:height" content="300">
+
+	<meta property="og:url" content="https://sairazex.in">
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo"><strong>SAIRAZEX</strong> by Sairaj Mhatre</a>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/sairaj-mhatre/" class="icon brands fa-linkedin"
+								target="_blank" rel="noopener noreferrer"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://www.instagram.com/sairaj_exe/" class="icon brands fa-instagram"
+								target="_blank" rel="noopener noreferrer"><span class="label">Instagram</span></a></li>
+						<li><a href="https://twitter.com/SairajMhatre6" class="icon brands fa-twitter" target="_blank"
+								rel="noopener noreferrer"><span class="label">Twitter</span></a></li>
+
+					</ul>
+				</header>
+
+				<section>
+					<header class="main">
+						<h1>OverTheWire : Bandit Challenge</h1>
+					</header>
+
+					<span class="image main"><img src="images/blg_3_1.png" alt="" /></span>
+					
+
+					<h2>What is it exactly ?</h2>
+					<p>The <a href="https://overthewire.org/wargames/bandit/">Bandit</a> wargame from OverTheWire is designed as a hands-on, practical learning environment for individuals who are new to cybersecurity and want to enhance their command line, Linux, and hacking skills. Here's an elaboration on the key aspects:</p>
+					<ol><p>
+						<li>Target Audience:
+
+Absolute Beginners: The game is specifically tailored for individuals who are just starting their journey in cybersecurity. It assumes little to no prior knowledge of command line usage or Linux systems.
+					</p></li>
+				<li>
+					<p>
+						Connection via SSH:
+
+SSH (Secure Shell): Users connect to the game servers using SSH, a secure protocol for accessing remote systems. This helps simulate real-world scenarios where administrators and hackers often manage systems remotely.
+					</p>
+				</li>
+				<li><p>
+					Command Line Skills Improvement:
+
+Hands-On Learning: Users are provided with a series of levels, each presenting a different challenge or puzzle. To progress, participants need to solve these challenges using command line instructions. This hands-on approach allows users to immediately apply and reinforce their knowledge.
+				</p></li>
+
+				<li>
+					<p>
+						Linux Skills Enhancement:
+
+Focused on Linux: The challenges in Bandit are set up on Linux servers. Participants learn and apply Linux commands and concepts, which are fundamental for anyone working in the field of cybersecurity, as Linux is widely used in server environments.
+					</p>
+				</li>
+				<li>
+					<p>
+						Progressive Learning:
+
+Sequential Levels: The challenges are organized into levels of increasing difficulty. Participants start with basic tasks and gradually move on to more complex scenarios. This progressive structure allows for a smooth learning curve, ensuring that users build upon their skills as they advance through the game.
+					</p>
+				</li>
+				
+				</ol>
+				<p style="color: red;">If you get stuck somewhere , Below is a Walkthrough for the Challenge  </p>
+
+				
+
+
+
+					<h2>Level 0</h2>
+					<pre>
+						<code>$ssh bandit0@bandit.labs.overthewire.org -p 2220
+bandit0
+
+						</code>
+					</pre>
+					<h2>Level 1</h2>
+					<pre>
+						<code>$ssh bandit1@bandit.labs.overthewire.org -p 2220
+NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+$cat ./-
+							
+
+						</code>
+					</pre>
+					<h2>Level 3</h2>
+					<pre>
+						<code>$ssh bandit3@bandit.labs.overthewire.org -p 2220
+aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+$ls -al
+$cat .hidden
+							
+
+						</code>
+					</pre>
+					<h2>Level 4</h2>
+					<pre>
+						<code>$ssh bandit4@bandit.labs.overthewire.org -p 2220
+2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+$file ./-file0*
+$cat ./-file07
+
+						</code>
+					</pre>
+					<h2>Level 5</h2>
+					<pre>
+						<code>$ssh bandit5@bandit.labs.overthewire.org -p 2220
+lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+$find  -type f -size 1033c ! -executable
+$cat ./maybehere07/.file2
+
+						</code>
+					</pre>
+					<h2>Level 6</h2>
+					<pre>
+						<code>$ssh bandit6@bandit.labs.overthewire.org -p 2220
+P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+$find -type f -size 33c -group bandit6 -user bandit7
+$cat ./var/lib/dpkg/info/bandit7.password
+
+						</code>
+					</pre>
+					<h2>Level 7</h2>
+					<pre>
+						<code>$ssh bandit7@bandit.labs.overthewire.org -p 2220
+z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+$cat data.txt | grep "millionth"
+
+						</code>
+					</pre>
+					<h2>Level 8</h2>
+					<pre>
+						<code>$ssh bandit8@bandit.labs.overthewire.org -p 2220
+TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+$cat data.txt | sort |  uniq -u -c 
+
+						</code>
+					</pre>
+					<h2>Level 9</h2>
+					<pre>
+						<code>$ssh bandit9@bandit.labs.overthewire.org -p 2220
+EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+$strings data.txt | grep ===*
+
+						</code>
+					</pre>
+					<h2>Level 10</h2>
+					<pre>
+						<code>$ssh bandit10@bandit.labs.overthewire.org -p 2220
+G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+$cat data.txt | base64 -d
+
+						</code>
+					</pre>
+					<h2>Level 11</h2>
+					<pre>
+						<code>$ssh bandit11@bandit.labs.overthewire.org -p 2220
+6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+//use ROT13 decryter on google
+
+						</code>
+					</pre>
+					<h2>Level 12</h2>
+					<pre>
+						<code>$ssh bandit12@bandit.labs.overthewire.org -p 2220
+JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+$xxd -r f1 > f2
+$mv f2 f2.gz
+$gzip -d f2.gz
+$mv f2 f3.bz2
+$bzip2 -d f3.bz2
+$mv f3 f4.gz
+$gzip -d f4.gz
+$mv f4 f4.tar
+$tar -xf f4.tar
+$mv data5.bin f5.tar
+$tar -xf f5.tar 
+$mv data6.bin f6.bz2
+$bzip2 -d f6.bz2
+$mv f6 f6.tar
+$tar -xf f6.tar
+$mv data8.bin f7.gz
+$gzip -d f7.gz
+$cat f7
+
+						</code>
+					</pre>
+					<h2>Level 13</h2>
+					<pre>
+						<code>$ssh bandit13@bandit.labs.overthewire.org -p 2220
+wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+$ssh -i sshkey.private bandit14@localhost -p 2220
+$cat /etc/bandit_pass/bandit14
+							
+
+						</code>
+					</pre>
+					<h2>Level 14</h2>
+					<pre>
+						<code>$ssh bandit14@bandit.labs.overthewire.org -p 2220
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+$nc localhost 30000
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+
+						</code>
+					</pre>
+					<h2>Level 15</h2>
+					<pre>
+						<code>$ssh bandit15@bandit.labs.overthewire.org -p 2220
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+$openssl s_client localhost:30001
+
+						</code>
+					</pre>
+					<h2>Level 16</h2>
+					<pre>
+						<code>$ssh bandit16@bandit.labs.overthewire.org -p 2220
+JQttfApK4SeyHwDlI9SXGR50qclOAil1
+
+$nmap localhost -p 31000-32000
+$openssl s_client localhost:31790 //tried all open ports from the nmap scan
+
+// entered current level passwd and in response got ssh private key
+$mkdir /tmp/barry
+$touch pass
+$vim pass
+// pasted the rsa_key
+$chmod 600 pass
+$ssh -i pass bandit17@localhost -p 2220
+$cat /etc/bandit_pass/bandit17
+							
+
+						</code>
+					</pre>
+					<h2>Level 17</h2>
+					<pre>
+						<code>$ssh bandit17@bandit.labs.overthewire.org -p 2220
+VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
+
+$diff passwords.old passwords.new
+
+
+						</code>
+					</pre>
+					<h2>Level 18</h2>
+					<pre>
+						<code>$ssh bandit18@bandit.labs.overthewire.org -p 2220
+hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+
+//upon login got kicked out
+
+$ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat readme"
+
+
+						</code>
+					</pre>
+					<h2>Level 19</h2>
+					<pre>
+						<code>$ssh bandit19@bandit.labs.overthewire.org -p 2220
+awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+$./bandit20-do cat /etc/bandit_pass/bandit20
+							
+
+						</code>
+					</pre>
+					<h2>Level 20</h2>
+					<pre>
+						<code>$ssh bandit20@bandit.labs.overthewire.org -p 2220
+VxCazJaVykI6W36BkBU0mJTCM8rR95XT
+
+$echo "VxCazJaVykI6W36BkBU0mJTCM8rR95XT" | nc -lvp  1234
+
+// open new terminal
+
+$./suconnect 1234
+
+						</code>
+					</pre>
+					<h2>Level 21</h2>
+					<pre>
+						<code>$ssh bandit21@bandit.labs.overthewire.org -p 2220
+NvEJF7oVjkddltPSrdKEFOllh9V1IBcq
+
+$cd /etc/cron.d/
+$cat cronjob_bandit22
+$cat /usr/bin/cronjob_bandit22.sh
+$cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+						</code>
+					</pre>
+					<h2>Level 22</h2>
+					<pre>
+						<code>$ssh bandit22@bandit.labs.overthewire.org -p 2220
+WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff
+
+$cd /etc/cron.d
+$cat cronjob_bandit23
+$cat /usr/bin/cronjob_bandit23.sh
+$echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+$cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+
+						</code>
+					</pre>
+					<h2>Level 23</h2>
+					<pre>
+						<code>$ssh bandit23@bandit.labs.overthewire.org -p 2220
+QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
+
+$cat /usr/bin/cronjob_bandit24.sh
+$mkdir /tmp/john
+$chmod 777 /tmp/john
+nano s.sh 
+	#!/bin/bash
+	cat /etc/bandit_pass/bandit24 > /tmp/john/pass.txt
+$chmod +x s.sh
+$cat /tmp/john/pass.txt
+
+						</code>
+					</pre>
+					<h2>Level 24</h2>
+					<pre>
+						<code>$ssh bandit24@bandit.labs.overthewire.org -p 2220
+VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar
+$mkdir /tmp/john
+$cd /tmp/john
+$nano hammer.sh
+		#!/bin/bash
+
+		for i in {9999..000}
+		do
+			echo "VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar $i"
+		done
+
+$chmod +x hammer.sh
+$./hammer.sh > brute.txt
+$cat brute.txt | nc localhost 30002
+							
+
+						</code>
+					</pre>
+					<h2>Level 25</h2>
+					<pre>
+						<code>$ssh bandit25@bandit.labs.overthewire.org -p 2220
+p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d
+
+we used the ssh key that we find on the home dir
+and try to ssh into bandit26 while also making the terminal smaller in the size
+so the we can buffer the output usind " More"
+then we used "v" to open vim editor
+then , :r cat /etc/bandit_pass/bandit26
+and voila xD
+
+						</code>
+					</pre>
+					<h2>Level 26</h2>
+					<pre>
+						<code>$ssh bandit26@bandit.labs.overthewire.org -p 2220
+c7GvcKlw9mC7aUQaPx7nwFstuAIBw1o1
+
+making the terminal smaller in the size
+so the we can buffer the output usind " More"
+then we used "v" to open vim editor
+then , :set shell=/bin/bash
+	then , :shell and we get a bash shell
+
+	$ ./bandit27-do cat /etc/bandit_pass/bandit27
+
+and voila
+
+						</code>
+					</pre>
+					<h2>Level 27</h2>
+					<pre>
+						<code>$ssh bandit27@bandit.labs.overthewire.org -p 2220
+YnQpBuifNMas1hcUFk70ZmqkhUU2EuaS
+
+$git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
+$cd repo
+$cat README
+
+						</code>
+					</pre>
+					<h2>Level 28</h2>
+					<pre>
+						<code>$ssh bandit28@bandit.labs.overthewire.org -p 2220
+AVanL161y9rsbcJIsFHuw35rjaOM19nR
+
+$cd repo
+$git log
+$git show [the second last hash from the log output]
+
+						</code>
+					</pre>
+					<h2>Level 29</h2>
+					<pre>
+						<code>$ssh bandit29@bandit.labs.overthewire.org -p 2220
+tQKvmcwNYcFS6vmPHIUSI3ShmsrQZK8S
+after cloning the repo
+change branch
+$git branch -a // to list available branches
+$git checkout dev
+$git log
+$git show [first hash from log]
+
+						</code>
+					</pre>
+					<h2>Level 30</h2>
+					<pre>
+						<code>$ssh bandit30@bandit.labs.overthewire.org -p 2220
+xbhV3HpNGlTIdnjUrdAlPzc2L6y9EOnS
+after cloning repo
+$cd .git
+$cat packed-refs
+$git show [the second hash in the packedref o/p ]
+
+						</code>
+					</pre>
+					<h2>Level 31</h2>
+					<pre>
+						<code>$ssh bandit31@bandit.labs.overthewire.org -p 2220
+OoffzGDlzhAlerFJ2cAiz1D41JW1Mhmt
+after cloning the repo
+$echo "May I come in?" >key.txt
+$git add key.txt -f
+$git commit -m "yeah"
+$git push
+
+						</code>
+					</pre>
+					<h2>Level 32</h2>
+					<pre>
+						<code>$ssh bandit32@bandit.labs.overthewire.org -p 2220
+rmCBvG56y58BXzv98yZGdO7ATVL5dW8y
+$0
+$cat /etc/bandit_pass/bandit33
+							
+
+						</code>
+					</pre>
+					<h2>Level 33</h2>
+					<pre>
+						<code>$ssh bandit33@bandit.labs.overthewire.org -p 2220
+odHo63fHiFqcWWJG9rLiLDtPm45KzUKy
+
+						</code>
+					</pre>
+					<h2>Level 34</h2>
+					<pre>
+						<code>GG WP 
+
+						</code>
+					</pre>
+					
+
+
+					
+
+				</section>
+
+
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+
+						<li>
+							<span class="opener">Blogs</span>
+							<ul>
+								<li><a style="color:#8d8d8d" href="Blog_1.html"> &bull; How I Bruteforced a Friend's
+										Website.</a></li>
+								<li><a style="color:#8d8d8d" href="Blog_2.html"> &bull; Build Your Own Port Scanner.</a></li>
+								<li><a style="color:#8d8d8d" href="Blog_3.html"> &bull; OverTheWire : Bandit Challenge.</a></li>
+
+
+							</ul>
+						</li>
+						<li><a href="index.html#aboutme">About Me</a></li>
+
+
+
+					</ul>
+				</nav>
+
+
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>I'd love to hear from you! Whether you want to chat about shared interests, collaborate on
+						exciting projects, or just have a friendly conversation, don't hesitate to reach out.</p>
+					<p>Ps : Im a lot easier to get in touch on my Socials </p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope">sairajbmhatre@gmail.com</li>
+						<li class="icon solid fa-home"> Mumbai <br />
+							Maharastra , India</li>
+					</ul>
+
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/sairaj-mhatre/" class="icon brands fa-linkedin"
+								target="_blank" rel="noopener noreferrer"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://www.instagram.com/sairaj_exe/" class="icon brands fa-instagram"><span
+									class="label">Instagram</span></a></li>
+						<li><a href="https://twitter.com/SairajMhatre6" class="icon brands fa-twitter"><span
+									class="label">Twitter</span></a></li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy;SAIRAZEX. All rights reserved. Made With &#128151;</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            var disclaimer = document.querySelector("img[alt='www.000webhost.com']");
+            if(disclaimer) {
+                disclaimer.remove();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
